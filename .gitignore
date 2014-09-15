@@ -1,28 +1,95 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+#include <iostream>
+#include <iomanip>
+using namespace std;
 
-# Precompiled Headers
-*.gch
-*.pch
+#include "apvector.h"
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+const int SIZE = 13;  // The size of the grid.  In the 1–D version
+                      //   the "grid" is a one–dimensional array.
 
-# Fortran module files
-*.mod
+const char ALIVE = 'x';
+const char DEAD = '.';
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+apvector<char> grid(SIZE);
 
-# Executables
-*.exe
-*.out
-*.app
+void NextGeneration()
+
+// Creates the next generation on the grid.
+
+{
+    apvector<char> newgrid(SIZE);
+    int i, neighbors;
+
+    // Count alive neighbors of each cell and
+    //   calculate the new grid:
+
+    for (i = 0;   i < SIZE;   i++) {
+        neighbors = 0;
+        if (i > 0 && grid[i-1] == ALIVE)
+            neighbors++;
+        if (i < SIZE-1 && grid[i+1] == ALIVE)
+            neighbors++;
+        if (neighbors == 1)
+            newgrid[i] = ALIVE;
+        else
+            newgrid[i] = DEAD;
+    }
+
+    // Update the grid:
+
+    grid = newgrid;
+}
+
+//****************************************************************
+
+void DisplayGrid(int generation)
+
+// Displays the current generation on the grid.
+
+{
+    int i;
+    cout << setw(4) << generation << ": ";
+
+    for (i = 0;   i < SIZE;   i++)
+        cout << grid[i];
+    cout << endl;
+}
+
+//****************************************************************
+
+void LoadGrid()
+
+// Reads the initial grid configuration.
+
+{
+    int i;
+
+    cout << "Enter initial configuration ('x' or '.'): ";
+    for (i = 0;   i < SIZE;   i++)
+        cin >> grid[i];
+    cin.ignore(80, '\n'); // Skip all remaining input to
+                          //   the end of the line.
+}
+
+//****************************************************************
+
+int main()
+
+{
+    int generation = 0;
+
+    LoadGrid();
+    DisplayGrid(generation);       // Display initial configuration.
+
+    char next;
+    for(;;) {
+        cout << "Next (y/n)? ";
+        cin >> next;
+        if (next != 'y')
+            break;
+        NextGeneration();
+        generation++;
+        DisplayGrid(generation);
+    }
+    return 0;
+}

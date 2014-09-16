@@ -8,5 +8,5 @@ bool alive_check[];
 void birth[];
 
 int main(){
-  
+  grid_create
 }

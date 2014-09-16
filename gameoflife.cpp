@@ -1,4 +1,9 @@
-GameOfLife
-==========
+#include <iostream>
 
-John Conway's Game of Life ICS4UG
+using namespace std;
+
+void grid_create
+
+int main(){
+  
+}

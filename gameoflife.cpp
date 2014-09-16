@@ -26,6 +26,7 @@ void read_file(){
   //read in the file here
   //use a structure i.e. Ap matrix
 }
-void neighborcheck[]{
+
+void neighbor_check(){
   if()
 }

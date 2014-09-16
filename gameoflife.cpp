@@ -14,5 +14,9 @@ bool alive_check[];
 void birth[];
 
 int main(){
+  read_file[];
   grid_create
+  neighbor_check[];
+  alive_check[];
+  birth[];
 }

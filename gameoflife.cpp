@@ -27,6 +27,10 @@ void read_file(){
   //use a structure i.e. Ap matrix
 }
 
+void grid_create(){
+  //create the grid
+}
+
 void neighbor_check(){
   if()
 }

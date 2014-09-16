@@ -14,6 +14,9 @@ bool alive_check[];
 void birth[];
 
 int main(){
+  BITMAP *buffer=NULL;
+  
+  //allegro initialisation
   read_file[];
   grid_create
   neighbor_check[];

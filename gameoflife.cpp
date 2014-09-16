@@ -2,7 +2,6 @@
   Mr. Creelman
   Game of Life program using allegro */
 #include <iostream>
-#include <iostream>
 #include <apmatrix>
 #include <allegro.h>
 
@@ -38,14 +37,14 @@ int main(){
 
 void populator(apmatrix<int> &grid){
 	for(int x = 0; x < grid.numrows(); x++)
+	{
+		for(int y = 0; y < grid.numcols(); y++)
 		{
-			for(int y = 0; y < grid.numcols(); y++)
-			{
-				grid[x, y] = rand() % 1; //seed all parts of the matrix with pseudo-random boolean 'alive's or 'dead's
-				cout << grid[x, y] << " ";
-			}
-			cout << endl;
+			grid[x, y] = rand() % 1; //seed all parts of the matrix with pseudo-random boolean 'alive's or 'dead's
+			cout << grid[x, y] << " ";
 		}
+		cout << endl;
+	}
 }
 
 /*void read_file(){

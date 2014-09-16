@@ -7,6 +7,7 @@
 
 using namespace std;
 
+void read_file[];
 void grid_create[];
 void neighbor_check[];
 bool alive_check[];

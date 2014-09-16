@@ -10,6 +10,8 @@ using namespace std;
 #define Rows 48
 #define Columns 64
 
+apmatrix<int> grid(Rows,Columns);
+
 void read_file();
 void grid_create();
 void neighbor_check();
@@ -37,7 +39,7 @@ void read_file(){
 
 void grid_create(){
   //create the grid
-  apmatrix<int> grid(Rows,Columns);
+  //apmatrix<int> grid(Rows,Columns);
   int nRows,nCols,row,col;
   nRows= grid.numrows();
   nCols= grid.numcols();

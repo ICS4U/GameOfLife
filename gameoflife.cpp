@@ -19,4 +19,9 @@ int main(){
   neighbor_check[];
   alive_check[];
   birth[];
+  return 0;
+}
+
+void neighborcheck[]{
+  if()
 }

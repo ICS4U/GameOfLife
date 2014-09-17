@@ -12,7 +12,6 @@ using namespace std;
 
 void populator(apmatrix<int> &a); //temporary function that populates the matrix randomly
 void read_file();
-void grid_create();
 int neighbor_check(apmatrix<int> &a, int x, int y); //function that takes the coordinates on the grid and returns the number of living neighbors that cell has
 bool alive_check(apmatrix<int> &a, int x, int y); //function that determines whether the cell with the specified coordinates is alive or dead
 
@@ -29,12 +28,12 @@ int main(){
 			if (grid[x, y] == 1) //if there is a living thing in the spot
 			{
 				if(neighbor_check(grid, x, y) != 2 && neighbor_check(grid, x, y) != 3) //and it has too few or too many neighbors it will die
-					grid[x, y] = 0;
+					grid[x, y] = 0; //kill it
 			}
-			else
+			else //if nothing lives here
 			{
-				if(neighbor_check(grid, x, y) == 3)
-					grid[x, y] = 1;
+				if(neighbor_check(grid, x, y) == 3) //but there are 3 living neighbors
+					grid[x, y] = 1; //give it life
 			}
 		}
 	}
@@ -45,10 +44,7 @@ int main(){
   allegro_init();
   
   //read_file();
-  grid_create();
   neighbor_check();
-  alive_check();
-  birth();*/
   return 0;
 }
 
@@ -69,16 +65,8 @@ void populator(apmatrix<int> &grid){
   //use a structure i.e. Ap matrix
 }*/
 
-void grid_create(){
-  //create the grid
-  //apmatrix<int> grid(Rows,Columns);
-  int nRows,nCols,row,col;
-  nRows= grid.numrows();
-  nCols= grid.numcols();
-  //fill in the grid based on the file read in earlier
-  return 0;
-}
-
-void neighbor_check(){
+void neighbor_check(apmatrix<int> &a, int x, int y){
   if()
 }
+
+

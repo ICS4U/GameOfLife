@@ -2,7 +2,7 @@
   Mr. Creelman
   Game of Life program using allegro */
 #include <iostream>
-#include <apmatrix>
+#include <apmatrix.h>
 #include <allegro.h>
 
 using namespace std;
@@ -13,15 +13,32 @@ using namespace std;
 void populator(apmatrix<int> &a); //temporary function that populates the matrix randomly
 void read_file();
 void grid_create();
-void neighbor_check();
-bool alive_check();
-void birth();
+int neighbor_check(apmatrix<int> &a, int x, int y); //function that takes the coordinates on the grid and returns the number of living neighbors that cell has
+bool alive_check(apmatrix<int> &a, int x, int y); //function that determines whether the cell with the specified coordinates is alive or dead
 
 int main(){
 	apmatrix<int> grid(Rows,Columns); //create the world
 	
 	populator(apmatrix<int> grid); //populate the world
 	
+	//this will go in a function at the end. The function will be looped by a key stroke for each generation.
+	for(int x = 0; x < grid.numrows(); x++)
+	{
+		for(int y = 0; y < grid.numcols(); y++)
+		{
+			if (grid[x, y] == 1) //if there is a living thing in the spot
+			{
+				if(neighbor_check(grid, x, y) != 2 && neighbor_check(grid, x, y) != 3) //and it has too few or too many neighbors it will die
+					grid[x, y] = 0;
+			}
+			else
+			{
+				if(neighbor_check(grid, x, y) == 3)
+					grid[x, y] = 1;
+			}
+		}
+	}
+
 	/*BITMAP *buffer=NULL;
   
   //allegro initialisation

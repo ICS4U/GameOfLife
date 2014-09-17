@@ -15,6 +15,24 @@ void read_file();
 int neighbor_check(apmatrix<int> &grid, int x, int y); //function that takes the coordinates on the grid and returns the number of living neighbors that cell has
 
 int main(){
+    BITMAP *buffer = NULL;
+  
+    //initialize 
+    allegro_init(); 
+    install_keyboard(); 
+    install_timer();
+   
+    buffer = create_bitmap(640, 480);
+	if (!buffer)
+		return 1;
+ 
+    srand(time(NULL));
+
+    //initialize video mode to 640x480
+    if (set_gfx_mode(GFX_AUTODETECT_WINDOWED, COLUMNS*SQUARE_SIZE, ROWS*SQUARE_SIZE, 0, 0)) {
+        allegro_message(allegro_error);
+        return 1;
+    }
 	apmatrix<int> grid(Rows,Columns); //create the world
 	
 	//read_file();

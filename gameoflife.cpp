@@ -82,6 +82,8 @@ int neighbor_check(apmatrix<int> &grid, int x, int y){
 		neighbors++;
 	if(grid[x-1, y-1] == 1) //southwest
 		neighbors++;
+		
+	return neighbors;
 }
 
 

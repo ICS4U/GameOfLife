@@ -60,7 +60,7 @@ int main(){
 	/*BITMAP *buffer=NULL;*/
   
   //allegro initialisation
-  allegro_init();
+ //allegro_init();
   return 0;
 }
 
@@ -79,6 +79,11 @@ void populator(apmatrix<int> &grid){
 /*void read_file(){
   //read in the file here
   //use a structure i.e. Ap matrix
+  //normal file i/o will work fine
+  //read in the 'data' from a file, basically, run a for loop until eof 
+    and then have an if statement check for 'x' or '.', setting a live or dead value to the ap 
+    matrix
+   //be carefull of the null value that it could read in before recognizzing the eof
 }*/
 
 int neighbor_check(apmatrix<int> &grid, int x, int y){

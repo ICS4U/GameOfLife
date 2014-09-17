@@ -13,7 +13,6 @@ using namespace std;
 void populator(apmatrix<int> &grid); //temporary function that populates the matrix randomly
 void read_file();
 int neighbor_check(apmatrix<int> &grid, int x, int y); //function that takes the coordinates on the grid and returns the number of living neighbors that cell has
-bool alive_check(apmatrix<int> &grid, int x, int y); //function that determines whether the cell with the specified coordinates is alive or dead
 
 int main(){
 	apmatrix<int> grid(Rows,Columns); //create the world
@@ -64,14 +63,25 @@ void populator(apmatrix<int> &grid){
   //use a structure i.e. Ap matrix
 }*/
 
-void neighbor_check(apmatrix<int> &grid, int x, int y){
-  for(int x = 0; x < grid.numrows(); x++)
-	{
-		for(int y = 0; y < grid.numcols(); y++)
-		{
-			if()
-		}
-	}
+int neighbor_check(apmatrix<int> &grid, int x, int y){
+	int neighbors = 0; //create a running total of neighbors variable
+
+	if(grid[x, y+1] == 1) //if there is life to the right
+		neighbors++;
+	if(grid[x, y-1] == 1) //if there is life to the left
+		neighbors++;
+	if(grid[x+1, y] == 1) //above
+		neighbors++;
+	if(grid[x-1, y] == 1) //below
+		neighbors++;
+	if(grid[x+1, y+1] == 1) //northeast
+		neighbors++;
+	if(grid[x+1, y-1] == 1) //northwest
+		neighbors++;
+	if(grid[x-1, y+1] == 1) //southeast
+		neighbors++;
+	if(grid[x-1, y-1] == 1) //southwest
+		neighbors++;
 }
 
 

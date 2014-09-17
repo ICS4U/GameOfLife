@@ -26,9 +26,15 @@ int main(){
 	{
 		for(int y = 0; y < grid.numcols(); y++)
 		{
-			if(neighbor_check(grid, x, y) == 2 || neighbor_check(grid, x, y) == 3 )
+			if (grid[x, y] == 1) //if there is a living thing in the spot
 			{
-				
+				if(neighbor_check(grid, x, y) != 2 && neighbor_check(grid, x, y) != 3) //and it has too few or too many neighbors it will die
+					grid[x, y] = 0;
+			}
+			else
+			{
+				if(neighbor_check(grid, x, y) == 3)
+					grid[x, y] = 1;
 			}
 		}
 	}

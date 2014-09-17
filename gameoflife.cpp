@@ -49,6 +49,11 @@ int main(){
   neighbor_check();
   alive_check();
   birth();*/
+  //code to print to the screen
+  //basically just looping through the entire apmatrix and printing to the screen, a rectangle/square for alive
+  
+  //need to decide on a screen refresh rate
+  //set allegro to refresh every so often (the refresh rate)
   return 0;
 }
 

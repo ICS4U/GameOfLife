@@ -13,9 +13,10 @@ using namespace std;
 #define SQUARE_SIZE 10
 //const char ALIVE = 'x';
 //const char DEAD = '.';
-unsigned short refreshgrid();
+void grid_create();
+void display(apmatrix <int> grid, int x, int y); //displays the results
 void populator(apmatrix<int> &grid); //temporary function that populates the matrix randomly
-void read_file(apmatrix<int> &grid);
+void read_file(apmatrix<int> &grid); //reads in the data
 int neighbor_check(apmatrix<int> &grid, int x, int y); //function that takes the coordinates on the grid and returns the number of living neighbors that cell has
 
 int main(){
@@ -43,6 +44,8 @@ int main(){
 	
 	populator(apmatrix<int> grid); //populate the world
 	
+	grid_create();
+	
 	//this will go in a function at the end. The function will be looped by a key stroke for each generation.
 	for(int x = 0; x < grid.numrows(); x++)
 	{
@@ -58,6 +61,7 @@ int main(){
 				if(neighbor_check(grid, x, y) == 3) //but there are 3 living neighbors
 					grid[x, y] = 1; //give it life
 			}
+			display(grid, x, y);
 			//rectfill(buffer, x1, y1, x2, y2, colour);
 		}
 	}

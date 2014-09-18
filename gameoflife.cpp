@@ -4,7 +4,7 @@
 #include <iostream>
 #include <apmatrix.h>
 #include <allegro.h>
-#include <fstream.h>
+#include <fstream>
 
 using namespace std;
 
@@ -87,7 +87,8 @@ void read_file(){
   //and then have an if statement check for 'x' or '.', setting a live or dead value to the ap 
   //matrix
   //be carefull of the null value that it could read in before recognizing the eof
-  
+  ifstream infile;
+  infile.open ("LIFE_CAT.DAT")
 }
 
 int neighbor_check(apmatrix<int> &grid, int x, int y){

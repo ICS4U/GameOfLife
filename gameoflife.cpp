@@ -87,13 +87,16 @@ void read_file(){
   //and then have an if statement check for 'x' or '.', setting a live or dead value to the ap 
   //matrix
   //be carefull of the null value that it could read in before recognizing the eof
-  ifstream infile("LIFE_CAT.DAT");
-  if (!infile)
+  ifstream infile("LIFE_CAT.DAT"); //creates filepointer
+  if (!infile) 
   	cerr<<"unable to open file"<<endl;
   infile.open;
   while (!infile.eof){
-  	//if char = "x" or "X" then set ap matrix for that value to alive
-  	//if char = "." then set to dead
+  	for(int y = 0; y < ROWS; y++)
+  	{
+  		for(int x = 0; x < COLUMNS; x++)
+        		cin >> grid[x , y] >> endl;
+  	}
   }
   infile.close;
 }

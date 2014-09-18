@@ -58,13 +58,12 @@ int main(){
 				if(neighbor_check(grid, x, y) == 3) //but there are 3 living neighbors
 					grid[x, y] = 1; //give it life
 			}
+			//rectfill(buffer, x1, y1, x2, y2, colour);
 		}
 	}
-
-	/*BITMAP *buffer=NULL;*/
-  
-  //allegro initialisation
- //allegro_init();
+	
+	
+	
   return 0;
 }
 

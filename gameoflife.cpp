@@ -8,13 +8,14 @@
 
 using namespace std;
 
-#define Rows 48
+#define Rows 20
 #define Columns 50
+#define SQUARE_SIZE 10
 //const char ALIVE = 'x';
 //const char DEAD = '.';
-
+unsigned short refreshgrid();
 void populator(apmatrix<int> &grid); //temporary function that populates the matrix randomly
-void read_file();
+void read_file(apmatrix<int> &grid);
 int neighbor_check(apmatrix<int> &grid, int x, int y); //function that takes the coordinates on the grid and returns the number of living neighbors that cell has
 
 int main(){

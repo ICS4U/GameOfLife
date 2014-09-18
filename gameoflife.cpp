@@ -10,11 +10,10 @@ using namespace std;
 
 #define Rows 20
 #define Columns 50
-#define SQUARE_SIZE 10
+#define SQUARE_SIZE 20
 //const char ALIVE = 'x';
 //const char DEAD = '.';
-void grid_create();
-void display(apmatrix <int> grid, int x, int y); //displays the results
+void display(apmatrix <int> grid, int x, int y, int alive); //displays the results
 void populator(apmatrix<int> &grid); //temporary function that populates the matrix randomly
 void read_file(apmatrix<int> &grid); //reads in the data
 int neighbor_check(apmatrix<int> &grid, int x, int y); //function that takes the coordinates on the grid and returns the number of living neighbors that cell has
@@ -44,8 +43,6 @@ int main(){
 	
 	populator(apmatrix<int> grid); //populate the world
 	
-	grid_create();
-	
 	//this will go in a function at the end. The function will be looped by a key stroke for each generation.
 	for(int x = 0; x < grid.numrows(); x++)
 	{
@@ -55,20 +52,25 @@ int main(){
 			{
 				if(neighbor_check(grid, x, y) != 2 && neighbor_check(grid, x, y) != 3) //and it has too few or too many neighbors it will die
 					grid[x, y] = 0; //kill it
+					display(grid, x, y, 0);
 			}
 			else //if nothing lives here
 			{
 				if(neighbor_check(grid, x, y) == 3) //but there are 3 living neighbors
 					grid[x, y] = 1; //give it life
+					display(grid, x, y, 1);
 			}
-			display(grid, x, y);
-			//rectfill(buffer, x1, y1, x2, y2, colour);
 		}
 	}
-	
-	
-	
   return 0;
+}
+
+void display(apmatrix <int> grid, int x, int y, int alive)
+{
+	if (alive == 1)
+		rectfill(buffer, x, y, x * SQUARE_SIZE - 1, y * SQUARE_SIZE - 1, col(255, 0, 0);
+	else
+		rectfill(buffer, x, y, x * SQUARE_SIZE - 1, y * SQUARE_SIZE - 1, col(0, 0, 125);
 }
 
 void populator(apmatrix<int> &grid){

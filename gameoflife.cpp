@@ -4,11 +4,14 @@
 #include <iostream>
 #include <apmatrix.h>
 #include <allegro.h>
+#include <fstream.h>
 
 using namespace std;
 
 #define Rows 48
 #define Columns 64
+//const char ALIVE = 'x';
+//const char DEAD = '.';
 
 void populator(apmatrix<int> &grid); //temporary function that populates the matrix randomly
 void read_file();
@@ -76,15 +79,16 @@ void populator(apmatrix<int> &grid){
 	}
 }
 
-/*void read_file(){
+void read_file(){
   //read in the file here
   //use a structure i.e. Ap matrix
   //normal file i/o will work fine
   //read in the 'data' from a file, basically, run a for loop until eof 
-    and then have an if statement check for 'x' or '.', setting a live or dead value to the ap 
-    matrix
-   //be carefull of the null value that it could read in before recognizzing the eof
-}*/
+  //and then have an if statement check for 'x' or '.', setting a live or dead value to the ap 
+  //matrix
+  //be carefull of the null value that it could read in before recognizing the eof
+  
+}
 
 int neighbor_check(apmatrix<int> &grid, int x, int y){
 	int neighbors = 0; //create a running total of neighbors variable

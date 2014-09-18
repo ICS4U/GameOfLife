@@ -88,7 +88,12 @@ void read_file(){
   //matrix
   //be carefull of the null value that it could read in before recognizing the eof
   ifstream infile;
-  infile.open ("LIFE_CAT.DAT")
+  infile.open ("LIFE_CAT.DAT");
+  while (!infile.eof){
+  	//if char = "x" or "X" then set ap matrix for that value to alive
+  	//if char = "." then set to dead
+  }
+  infile.close;
 }
 
 int neighbor_check(apmatrix<int> &grid, int x, int y){
